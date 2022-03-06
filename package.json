@@ -1,6 +1,6 @@
 {
   "name": "web3-react-abstract-connector",
-  "version": "1.0.0",
+  "version": "6.0.8",
   "publishConfig": {
     "access": "public"
   },
@@ -20,11 +20,18 @@
   "author": "Noah Zinsmeister <noahwz@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git://github.com/NoahZinsmeister/web3-react.git"
+    "url": "git://github.com/sambacha/package-npm-react-web3.git"
   },
   "main": "dist/index.js",
-  "module": "dist/abstract-connector.esm.js",
+  "module": "dist/web3-react-abstract-connector.esm.js",
   "typings": "dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": "./dist/web3-react-abstract-connector.esm.js",
+      "require": "./dist/web3-react-abstract-connector.cjs.production.min.js"
+    }
+  },
   "files": [
     "dist"
   ],
