@@ -1,6 +1,9 @@
-/// <reference types="node" />
-import { EventEmitter } from 'events';
-import { AbstractConnectorArguments, ConnectorUpdate } from '@web3-react/types';
+/// <reference types="@types/node/events" />
+/**
+ * @package abstract-connector
+ */
+import { EventEmitter } from 'node:events';
+import { AbstractConnectorArguments, ConnectorUpdate } from './types';
 export declare abstract class AbstractConnector extends EventEmitter {
     readonly supportedChainIds?: number[];
     constructor({ supportedChainIds }?: AbstractConnectorArguments);

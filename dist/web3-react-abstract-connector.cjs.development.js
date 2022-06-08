@@ -1,9 +1,6 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', { value: true });
-
-var events = require('events');
-var types = require('@web3-react/types');
+var node_events = require('node:events');
 
 function _inheritsLoose(subClass, superClass) {
   subClass.prototype = Object.create(superClass.prototype);
@@ -13,13 +10,20 @@ function _inheritsLoose(subClass, superClass) {
 }
 
 function _setPrototypeOf(o, p) {
-  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+  _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) {
     o.__proto__ = p;
     return o;
   };
-
   return _setPrototypeOf(o, p);
 }
+
+var ConnectorEvent;
+
+(function (ConnectorEvent) {
+  ConnectorEvent["Update"] = "Web3ReactUpdate";
+  ConnectorEvent["Error"] = "Web3ReactError";
+  ConnectorEvent["Deactivate"] = "Web3ReactDeactivate";
+})(ConnectorEvent || (ConnectorEvent = {}));
 
 var AbstractConnector = /*#__PURE__*/function (_EventEmitter) {
   _inheritsLoose(AbstractConnector, _EventEmitter);
@@ -39,30 +43,30 @@ var AbstractConnector = /*#__PURE__*/function (_EventEmitter) {
 
   _proto.emitUpdate = function emitUpdate(update) {
     {
-      console.log("Emitting '" + types.ConnectorEvent.Update + "' with payload", update);
+      console.log("Emitting '" + ConnectorEvent.Update + "' with payload", update);
     }
 
-    this.emit(types.ConnectorEvent.Update, update);
+    this.emit(ConnectorEvent.Update, update);
   };
 
   _proto.emitError = function emitError(error) {
     {
-      console.log("Emitting '" + types.ConnectorEvent.Error + "' with payload", error);
+      console.log("Emitting '" + ConnectorEvent.Error + "' with payload", error);
     }
 
-    this.emit(types.ConnectorEvent.Error, error);
+    this.emit(ConnectorEvent.Error, error);
   };
 
   _proto.emitDeactivate = function emitDeactivate() {
     {
-      console.log("Emitting '" + types.ConnectorEvent.Deactivate + "'");
+      console.log("Emitting '" + ConnectorEvent.Deactivate + "'");
     }
 
-    this.emit(types.ConnectorEvent.Deactivate);
+    this.emit(ConnectorEvent.Deactivate);
   };
 
   return AbstractConnector;
-}(events.EventEmitter);
+}(node_events.EventEmitter);
 
 exports.AbstractConnector = AbstractConnector;
 //# sourceMappingURL=web3-react-abstract-connector.cjs.development.js.map
