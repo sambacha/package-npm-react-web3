@@ -1,6 +1,6 @@
 {
   "name": "web3-react-abstract-connector",
-  "version": "6.0.8",
+  "version": "6.0.9",
   "publishConfig": {
     "access": "public"
   },
@@ -22,31 +22,35 @@
     "type": "git",
     "url": "git://github.com/sambacha/package-npm-react-web3.git"
   },
-  "main": "dist/index.js",
-  "module": "dist/web3-react-abstract-connector.esm.js",
-  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "sideEffects": false,
+  "types": "./dist/index.d.ts",
+  "main": "./dist/web3-react-abstract-connector.cjs.production.min.js",
+  "module": "./dist/web3-react-abstract-connector.esm.js",
   "exports": {
     "./package.json": "./package.json",
-    ".": {
-      "import": "./dist/web3-react-abstract-connector.esm.js",
-      "require": "./dist/web3-react-abstract-connector.cjs.production.min.js"
+    "./*": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
     }
   },
-  "files": [
-    "dist"
-  ],
+  "type": "module",
   "scripts": {
     "start": "tsdx watch",
-    "build": "tsdx build",
+    "compile": "tsdx build",
     "lint": "tsdx lint src"
   },
-  "dependencies": {
-    "@web3-react/types": "6.0.7"
-  },
+  "dependencies": {},
   "license": "GPL-3.0-or-later",
   "devDependencies": {
-    "@types/node": "^14.18.12",
+    "@types/node": "^16",
+    "prettier": "^2.6.2",
     "tsdx": "^0.14.1",
-    "tslib": "^2.3.1"
+    "tslib": "^2.3.1",
+    "typedoc": "^0.22.17",
+    "typescript": "4.6.3"
   }
 }

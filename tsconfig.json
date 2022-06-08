@@ -1,17 +1,18 @@
 {
-  "include": ["src"],
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2020",
     "module": "esnext",
-    "lib": ["dom", "esnext"],
+    "lib": ["DOM", "DOM.Iterable", "ESNEXT"],
     "importHelpers": true,
     "declaration": true,
     "sourceMap": true,
     "strict": true,
     "noImplicitAny": true,
+    "allowUnreachableCode": false,
+    "strictPropertyInitialization": true,
     "strictNullChecks": true,
     "strictFunctionTypes": true,
-    "strictPropertyInitialization": true,
+    "isolatedModules": true,
     "noImplicitThis": true,
     "alwaysStrict": true,
     "noUnusedLocals": true,
@@ -19,12 +20,18 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "moduleResolution": "node",
-    "jsx": "react",
-    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": false,
+    "esModuleInterop": false,
     "rootDir": "./src",
-    "baseUrl": "./",
-    "paths": {
-      "*": ["src/*", "node_modules/*"]
-    }
+    "outDir": "./dist",
+    "types": ["@types/node/events"]
+  },
+    "include": [
+      "src/**/*.ts"
+    ],
+    "exclude": [
+      "**/node_modules",
+      "**/.*/",
+      "src/**/*.test.ts"
+    ]
   }
-}
