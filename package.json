@@ -1,6 +1,6 @@
 {
   "name": "web3-react-abstract-connector",
-  "version": "6.0.8",
+  "version": "6.0.9",
   "publishConfig": {
     "access": "public"
   },
@@ -22,9 +22,12 @@
     "type": "git",
     "url": "git://github.com/sambacha/package-npm-react-web3.git"
   },
-  "main": "dist/index.js",
-  "module": "dist/web3-react-abstract-connector.esm.js",
-  "typings": "dist/index.d.ts",
+  "files": ["dist"],
+  "sideEffects": false,,
+  "types": "./dist/index.d.ts",
+  "main": "./dist/web3-react-abstract-connector.cjs.production.min.js"
+  "module": "./dist/web3-react-abstract-connector.esm.js",
+  "typings": "./dist/index.d.ts",
   "exports": {
     "./package.json": "./package.json",
     ".": {
@@ -32,9 +35,6 @@
       "require": "./dist/web3-react-abstract-connector.cjs.production.min.js"
     }
   },
-  "files": [
-    "dist"
-  ],
   "scripts": {
     "start": "tsdx watch",
     "build": "tsdx build",
